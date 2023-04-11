@@ -6,37 +6,32 @@
         <title>Calculator</title>
     </head>
     <body>
-    <table class="calculator">
-        <tr>
-            <td colspan="4">0</td>
-        </tr>
-        <tr>
-            <td><button onclick="">1</button></td>
-            <td><button onclick="">2</button></td>
-            <td><button onclick="">3</button></td>
-            <td><button onclick="">+</button></td>
-        </tr>
-        <tr>
-            <td><button onclick="">4</button></td>
-            <td><button onclick="">5</button></td>
-            <td><button onclick="">6</button></td>
-            <td><button onclick="">-</button></td>
-        </tr>
-        <tr>
-            <td><button onclick="">7</button></td>
-            <td><button onclick="">8</button></td>
-            <td><button onclick="">9</button></td>
-            <td><button onclick="">*</button></td>
-        </tr>
-        <tr>
-            <td colspan="3"><button onclick="">0</button></td>
-            <td><button onclick="">/</button></td>
-        </tr>
-        <tr>
-            <td colspan="2"><button onclick="">AC</button></td>
-            <td><button onclick="">.</button></td>
-            <td><button onclick="">=</button></td>
-        </tr>
-    </table>
+        <h1 class="text">CALCULATOR FREE!</h1>
+    <div id="general">
+        <form class="calculator" name="calculator">
+            <input class="result" type="textfield" name="ans" value="" autocomplete="off" readonly >
+            <br>
+            <input type="button" value="7" onclick="document.calculator.ans.value+='7'">
+            <input type="button" value="8" onclick="document.calculator.ans.value+='8'">
+            <input type="button" value="9" onclick="document.calculator.ans.value+='9'">
+            <input type="button" value="+" onclick="document.calculator.ans.value+='+'" class="operations">
+            <br>
+            <input type="button" value="4" onclick="document.calculator.ans.value+='4'">
+            <input type="button" value="5" onclick="document.calculator.ans.value+='5'">
+            <input type="button" value="6" onclick="document.calculator.ans.value+='6'">
+            <input type="button" value="-" onclick="document.calculator.ans.value+='7'" class="operations">
+            <br>
+            <input type="button" value="1" onclick="document.calculator.ans.value+='1'">
+            <input type="button" value="2" onclick="document.calculator.ans.value+='2'">
+            <input type="button" value="3" onclick="document.calculator.ans.value+='3'">
+            <input type="button" value="x" onclick="document.calculator.ans.value+='*'" class="operations">
+            <br>
+            <input type="button" value="0" onclick="document.calculator.ans.value+='0'">
+            <input type="reset" value="C" class="operations">
+            <input type="button" value="=" onclick="document.calculator.ans.value=eval(document.calculator.ans.value)" class="operations">
+            <input type="button" value="/" onclick="document.calculator.ans.value+='/'" class="operations">
+            <br>
+        </form>
+    </div>
 </body>
 </html>
