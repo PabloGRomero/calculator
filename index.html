@@ -10,7 +10,7 @@
     <div id="general">
         <form class="calculator" name="calculator">
             <input class="result" type="textfield" name="ans" value="" autocomplete="off" readonly >
-            <br>
+            <!-- <br>
             <input type="button" value="7" onclick="document.calculator.ans.value+='7'">
             <input type="button" value="8" onclick="document.calculator.ans.value+='8'">
             <input type="button" value="9" onclick="document.calculator.ans.value+='9'">
@@ -19,7 +19,7 @@
             <input type="button" value="4" onclick="document.calculator.ans.value+='4'">
             <input type="button" value="5" onclick="document.calculator.ans.value+='5'">
             <input type="button" value="6" onclick="document.calculator.ans.value+='6'">
-            <input type="button" value="-" onclick="document.calculator.ans.value+='7'" class="operations">
+            <input type="button" value="-" onclick="document.calculator.ans.value+='-'" class="operations">
             <br>
             <input type="button" value="1" onclick="document.calculator.ans.value+='1'">
             <input type="button" value="2" onclick="document.calculator.ans.value+='2'">
@@ -30,8 +30,41 @@
             <input type="reset" value="C" class="operations">
             <input type="button" value="=" onclick="document.calculator.ans.value=eval(document.calculator.ans.value)" class="operations">
             <input type="button" value="/" onclick="document.calculator.ans.value+='/'" class="operations">
-            <br>
+            <br> -->
         </form>
     </div>
+<script>
+   const teclas = [
+        {text:'7',val:'7'},
+        {text:'8',val:'8'},
+        {text:'9',val:'9'},
+        {text:'+',val:'+'},
+        {text:'4',val:'4'},
+        {text:'5',val:'5'},
+        {text:'6',val:'6'},
+        {text:'-',val:'-'},
+        {text:'1',val:'1'},
+        {text:'2',val:'2'},
+        {text:'3',val:'3'},
+        {text:'x',val:'*'},
+        {text:'0',val:'0'},
+        {text:'c',val:'c'},
+        {text:'=',val:'='},
+        {text:'/',val:'/'}
+    ]
+    const calc = document.querySelector('.calculator')
+    const br = document.createElement('br')
+    teclas.forEach((el, index) => {
+            const tecla = document.createElement('input')
+            tecla.type="button"
+            if(el.text === 'c')tecla.type="reset"
+            tecla.value=el.text
+            if((index+1) % 4 === 0) tecla.classList.add('operations')
+            tecla.onclick = () => document.calculator.ans.value+=el.val
+            if(el.text === '=')tecla.onclick = () => document.calculator.ans.value=eval(document.calculator.ans.value)
+            if(index % 4 !== 0) calc.appendChild(tecla)
+            if(index %4 === 0) calc.append(br,tecla)
+    })
+</script>
 </body>
 </html>
